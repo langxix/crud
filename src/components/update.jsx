@@ -4,9 +4,9 @@ import { useNavigate, Link } from 'react-router-dom';
 
 export default function Update() {
   const navigate = useNavigate();
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [checkbox, setCheckbox] = useState(false);
+  const [task, setTask] = useState("");
+  const [description, setDescription] = useState("");
+  // const [checkbox, setCheckbox] = useState(false);
   const [id, setID] = useState(null);
   const [updateMessage, setUpdateMessage] = useState(null);
   const [taskType, setTaskType] = useState("");
@@ -14,8 +14,8 @@ export default function Update() {
 
   useEffect(() => {
     setID(localStorage.getItem('ID'));
-    setFirstName(localStorage.getItem('First Name') || '');
-    setLastName(localStorage.getItem('Last Name') || '');
+    settask(localStorage.getItem('Task') || '');
+    setLastName(localStorage.getItem('Description') || '');
     setTaskType(localStorage.getItem('Task Type') || '');
     // setLastName(localStorage.getItem('Last Name') || '');
 
@@ -24,8 +24,8 @@ export default function Update() {
 
   const updateAPIData = () => {
     axios.put(`https://65c9c1cc3b05d29307deeb3c.mockapi.io/fakeData/${id}`, {
-      firstName,
-      lastName,
+      task,
+      description,
       checkbox,
       taskType,
       updatedAt: dateAdded || new Date().toISOString().split('T')[0],
@@ -89,8 +89,8 @@ export default function Update() {
               <input
                 type="text"
                 placeholder="Task"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                value={task}
+                onChange={(e) => settask(e.target.value)}
                 className="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 required
               />
