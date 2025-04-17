@@ -19,12 +19,12 @@ export default function Read() {
   };
 
   const setData = (data) => {
-    const { id, task, descption, taskType } = data;
+    const { id, firstName, lastName, checkbox, taskType } = data;
     localStorage.setItem('ID', id);
-    localStorage.setItem('Task', task);
-    localStorage.setItem('Description', description);
-    // localStorage.setItem('Checkbox Value', checkbox);
-    localStorage.setItem('Task Type', taskType); 
+    localStorage.setItem('First Name', firstName);
+    localStorage.setItem('Last Name', lastName);
+    localStorage.setItem('Checkbox Value', checkbox);
+    localStorage.setItem('Task Type', taskType); // ✅ Save for update page
   };
 
   const onDelete = (id) => {
@@ -84,7 +84,7 @@ export default function Read() {
             <Table.HeaderCell>Task</Table.HeaderCell>
             <Table.HeaderCell>Description</Table.HeaderCell>
             <Table.HeaderCell>Status</Table.HeaderCell>
-            <Table.HeaderCell>Category</Table.HeaderCell> 
+            <Table.HeaderCell>Category</Table.HeaderCell> {/* ✅ New Column */}
             <Table.HeaderCell>Created/Updated</Table.HeaderCell>
             <Table.HeaderCell>Update</Table.HeaderCell>
             <Table.HeaderCell>Delete</Table.HeaderCell>
