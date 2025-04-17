@@ -4,9 +4,9 @@ import { useNavigate, Link } from 'react-router-dom';
 
 export default function Create() {
   const navigate = useNavigate();
-  const [task, setTask] = useState("");
-  const [description, setDescription] = useState("");
-  // const [checkbox, setCheckbox] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [checkbox, setCheckbox] = useState(false);
   const [taskType, setTaskType] = useState("");
   const [dateAdded, setDateAdded] = useState('');
   const [createMessage, setCreateMessage] = useState(null);
@@ -27,8 +27,8 @@ export default function Create() {
     axios.post(
       `https://65c9c1cc3b05d29307deeb3c.mockapi.io/fakeData`,
       {
-        task,
-        decription,
+        firstName,
+        lastName,
         checkbox,
         taskType,
         createdAt: dateAdded || new Date().toISOString().split('T')[0],
