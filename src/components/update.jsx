@@ -4,8 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 
 export default function Update() {
   const navigate = useNavigate();
-  const [task, setTask] = useState("");
-  const [description, setDescription] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   // const [checkbox, setCheckbox] = useState(false);
   const [id, setID] = useState(null);
   const [updateMessage, setUpdateMessage] = useState(null);
@@ -14,8 +14,8 @@ export default function Update() {
 
   useEffect(() => {
     setID(localStorage.getItem('ID'));
-    settask(localStorage.getItem('Task') || '');
-    setLastName(localStorage.getItem('Description') || '');
+    settask(localStorage.getItem('First Name') || '');
+    setLastName(localStorage.getItem('Last Name') || '');
     setTaskType(localStorage.getItem('Task Type') || '');
     // setLastName(localStorage.getItem('Last Name') || '');
 
@@ -24,8 +24,8 @@ export default function Update() {
 
   const updateAPIData = () => {
     axios.put(`https://65c9c1cc3b05d29307deeb3c.mockapi.io/fakeData/${id}`, {
-      task,
-      description,
+      fisrtName,
+      lastName,
       checkbox,
       taskType,
       updatedAt: dateAdded || new Date().toISOString().split('T')[0],
